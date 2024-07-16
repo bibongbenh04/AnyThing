@@ -1,0 +1,7 @@
+﻿  Food.cpp
+  GameBoard.cpp
+D:\BiBongBenh\Desktop\AnyThing\OOP\GameBoard.cpp(9,25): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  OOP.cpp
+  Snake.cpp
+  Generating Code...
+  OOP.vcxproj -> D:\BiBongBenh\Desktop\AnyThing\x64\Debug\OOP.exe
