@@ -12,7 +12,7 @@ GameBoard::GameBoard(int width, int height) : width(width), height(height), snak
 
 void GameBoard::display()
 {
-    std::vector<std::vector<std::string>> board(height+1, std::vector<std::string>(width+1, " "));
+    std::vector<std::vector<std::string>> board(height, std::vector<std::string>(width, " "));
 
     for (const auto& segment : snake.getSegments())
     {
@@ -25,21 +25,27 @@ void GameBoard::display()
     {
         board[specialFood->getY()][specialFood->getX()] = "S";
     }
-    for (int i = 0; i <= height; ++i) {
-        board[i][0] = "*";
-        board[i][width] = "*";
-    }
+    std::cout << "            * ";
     for (int i = 0; i <= width; ++i) {
-        board[0][i] = "*";
-        board[height][i] = "*";
+        std::cout << "* ";
     }
+    std::cout << "\n";
     for (const auto& row : board)
     {
+        std::cout << "            * ";
         for (std::string cell : row)
         {
             std::cout << cell << " ";
         }
-        std::cout << std::endl;
+        std::cout << "* " << std::endl;
+    }
+    std::cout << "            * ";
+    for (int i = 0; i <= width; ++i) {
+        std::cout << "* ";
+    }
+    std::cout << "\n";
+    for (int i = 0; i <= width/2 - 1; ++i) {
+        std::cout << "  ";
     }
     std::cout << "Score: " << score << std::endl;
 }
@@ -74,14 +80,14 @@ bool GameBoard::update(char direction)
 
 void GameBoard::generateFood()
 {
-    int x = std::rand() % (width+1);
-    int y = std::rand() % (height+1);
+    int x = std::rand() % (width);
+    int y = std::rand() % (height);
     food = std::make_unique<Food>(x, y);
 }
 
 void GameBoard::generateSpecialFood()
 {
-    int x = std::rand() % (width + 1);
-    int y = std::rand() % (height + 1);
+    int x = std::rand() % (width);
+    int y = std::rand() % (height);
     specialFood = std::make_unique<SpecialFood>(x, y);
 }

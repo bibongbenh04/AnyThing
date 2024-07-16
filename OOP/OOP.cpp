@@ -6,7 +6,7 @@
 
 int main()
 {
-    GameBoard game(40, 20);
+    GameBoard game(30, 30);
 
     char direction = 'R';
 
@@ -23,7 +23,7 @@ int main()
             break;
         }
         game.display();
-        std::this_thread::sleep_for(std::chrono::milliseconds(100));
+        std::this_thread::sleep_for(std::chrono::milliseconds(60));
         system("cls");
 
     }
